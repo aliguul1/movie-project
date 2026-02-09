@@ -67,25 +67,38 @@ def delete_movie(title):
 
 
 def update_movie(title, rating):
-    """Update a movie's rating in the database."""
     with engine.connect() as connection:
-        result = connection.execute(
-            text("SELECT * FROM movies WHERE title = :title"),
-            {"title": title}
-        ).fetchone()
+        with connection.begin():
+            result = connection.execute(
+                text("UPDATE movies SET rating = :rating WHERE title = :title"),
+                {"rating": rating, "title": title}
+            )
 
-        if not result:
-            print(f"Movie '{title}' not found.")
-            return
-
-        connection.execute(
-            text("""
-                UPDATE movies
-                SET rating = :rating
-                WHERE title = :title
-            """),
-            {"rating": rating, "title": title}
-        )
-        connection.commit()
-
-        print(f"Movie '{title}' updated successfully.")
+            # rowcount tells you how many rows were actually changed
+            if result.rowcount == 0:
+                print(f"Movie '{title}' not found.")
+            else:
+                print(f"Update successful. Rows affected: {result.rowcount}")
+# def update_movie(title, rating):
+#     """Update a movie's rating in the database."""
+#     with engine.connect() as connection:
+#         result = connection.execute(
+#             text("SELECT * FROM movies WHERE title = :title"),
+#             {"title": title}
+#         ).fetchone()
+#
+#         if not result:
+#             print(f"Movie '{title}' not found.")
+#             return
+#
+#         connection.execute(
+#             text("""
+#                 UPDATE movies
+#                 SET rating = :rating
+#                 WHERE title = :title
+#             """),
+#             {"rating": rating, "title": title}
+#         )
+#         connection.commit()
+#
+#         print(f"Movie '{title}' updated successfully.")

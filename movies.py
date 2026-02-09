@@ -17,8 +17,20 @@ def command_list_movies():
 def command_add_movie():
     """Prompt user for movie data and add it to the database."""
     title = input("Enter movie title: ").strip()
-    year = int(input("Enter release year: "))
-    rating = float(input("Enter rating (0-10): "))
+    
+    while True:
+        try:
+            year = int(input("Enter release year: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number for the year.")
+
+    while True:
+        try:
+            rating = float(input("Enter rating (0-10): "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number for the rating.")
 
     storage.add_movie(title, year, rating)
 
@@ -32,7 +44,13 @@ def command_delete_movie():
 def command_update_movie():
     """Update a movie's rating."""
     title = input("Enter movie title to update: ").strip()
-    rating = float(input("Enter new rating: "))
+    
+    while True:
+        try:
+            rating = float(input("Enter new rating: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number for the rating.")
 
     storage.update_movie(title, rating)
 
@@ -92,3 +110,17 @@ def main():
 
 if __name__ == "__main__":
     main()
+# Movies list1
+
+# In the Name of the Father (1993): 8.1
+# Titanic (1997): 6.6
+# Venom (2018): 6.6
+# Fallout (2024): 8.7
+# Baby Reindeer (2024): 8.2
+# Civil War (2024): 8.7
+# Law Abiding Citizen (2009): 7.4
+# Law & Order (1990): 7.8
+# Law & Order: Special Victims Unit (1999): 8.1
+# To Wong Foo, Thanks for Everything! Julie Newmar (1995): 6.7
+# Emily in Paris (2020): 6.9
+# 21 (2008): 6.8
