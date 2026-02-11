@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>__TEMPLATE_TITLE__</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* The Green Banner */
+        .app-header {
+            background-color: #4CAF50;
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .app-header h1 {
+            margin: 0;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* The Side-by-Side Grid */
+        .movie-grid {
+            display: flex;
+            flex-wrap: wrap; /* This makes them go next to each other */
+            justify-content: center; /* Centers the cards */
+            gap: 30px;
+            padding: 40px;
+            list-style: none; /* Removes bullet points if using <ul>/<li> */
+        }
+
+        /* Individual Movie Cards */
+        .movie-card {
+            background-color: white;
+            width: 220px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .movie-card h3 {
+            font-size: 1.1rem;
+            margin: 15px 0 5px 0;
+            color: #333;
+        }
+
+        .movie-card p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-header">
+    <h1>__TEMPLATE_TITLE__</h1>
+</div>
+
+<div class="movie-grid">
+    __TEMPLATE_MOVIE_GRID__
+</div>
+
+</body>
+</html>
