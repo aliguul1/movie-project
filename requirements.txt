@@ -1,5 +1,5 @@
 How to use these files together
-Now that your project is fully structured like a professional application, here is how to get it running from scratch:
+Here is how to get it running from scratch:
 
 Initialize the environment:
 
