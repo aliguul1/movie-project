@@ -1,8 +1,8 @@
-How to use these files together
-Here is how to get it running from scratch:
+# Core library for OMDb API requests
+requests==2.31.0
 
-Initialize the environment:
+# Database abstraction layer
+SQLAlchemy==2.0.25
 
-Verify the _static content: Make sure your index_template.html is inside _static. Without it, option 9 will show a "File Not Found" error.
-
-Launch the App:
+# Optional: Helpful for cross-platform terminal colors
+colorama==0.4.6
